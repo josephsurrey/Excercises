@@ -49,9 +49,13 @@ def main():
         name = input("Enter name of speeder: ")
         if name.lower() == "stop":
             break
-
-        speed = int(input("Enter the amount over speed limit: "))
-        speeders.append(process_speeder(name, speed))
+        while True:
+            try:
+                speed = int(input("Enter the amount over speed limit: "))
+                speeders.append(process_speeder(name, speed))
+                break
+            except ValueError:
+                print("Please enter a valid number")
 
     display_summary(speeders)
 
