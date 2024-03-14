@@ -47,6 +47,9 @@ def main():
             break
 
         rolls_remaining -= 1
+    play_again = eg.buttonbox("Would you like to play again?", TITLE, ["Yes", "No"])
+    if play_again == "Yes":
+        main()
 
 
 main()
