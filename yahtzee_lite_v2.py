@@ -9,7 +9,6 @@ def roll_dice():
 
 
 def calculate_score(dice):
-    # Check for Yahtzee, Four of a Kind, Three of a Kind
     if dice.count(dice[0]) == 5:
         return 50
     elif any(dice.count(x) >= 4 for x in dice):
@@ -17,8 +16,7 @@ def calculate_score(dice):
     elif any(dice.count(x) >= 3 for x in dice):
         return 10
     else:
-        # Sum of all dice for other cases
-        return sum(dice)
+        return 0
 
 
 def get_player_name():
@@ -75,8 +73,7 @@ def main():
                       f"{player2_name} scored {player2_score} points.\n"
                       f"{player2_name} wins!", TITLE)
 
-        play_again = eg.buttonbox("Would you like to play again?", TITLE, ["Yes", "No"]
-        )
+        play_again = eg.buttonbox("Would you like to play again?", TITLE, ["Yes", "No"])
         if play_again == "Yes":
             main()
         else:
