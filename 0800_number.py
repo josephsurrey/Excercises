@@ -12,13 +12,13 @@ phone_letters = {
 
 
 def convert_to_number(user_word):
-    number = ""
+    number = []
     word = user_word.upper()
     for letter in word:
         if letter in phone_letters:
-            number += phone_letters[letter]
+            number.append(phone_letters[letter])
 
-    return f"0800 {number}"
+    return f"0800 {''.join(number)}"
 
 
 def main():
