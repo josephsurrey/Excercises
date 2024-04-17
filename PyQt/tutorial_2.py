@@ -1,46 +1,20 @@
 import sys
-from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton
+
+from PyQt6.QtCore import Qt
+from PyQt6.QtGui import QAction
+from PyQt6.QtWidgets import QApplication, QLabel, QMainWindow, QMenu
 
 
 class MainWindow(QMainWindow):
-
-    """    def __init__(self):
+    def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("My App")
-
-        button = QPushButton("Press me")
-        button.setCheckable(True)
-        button.clicked.connect(self.the_button_was_clicked)
-
-#        button.clicked.connect(self.the_button_was_toggled)
-
-        self.setCentralWidget(button)
-
-    def the_button_was_clicked(self):
-        print("Clicked!")
-
-    def the_button_was_toggled(self, checked):
-        print("Checked:", checked)"""
-
-
-def __init__(self):
-    super().__init__()
-
-    self.setWindowTitle("My App")
-
-    self.button = QPushButton("Press Me!")
-    self.button.clicked.connect(self.the_button_was_clicked)
-
-    self.setCentralWidget(self.button)
-
-
-def the_button_was_clicked(self):
-    self.button.setText("You already clicked me.")
-    self.button.setEnabled(False)
-
-    # Also change the window title.
-    self.setWindowTitle("My Oneshot App")
+    def contextMenuEvent(self, e):
+        context = QMenu(self)
+        context.addAction(QAction("test 1", self))
+        context.addAction(QAction("test 2", self))
+        context.addAction(QAction("test 3", self))
+        context.exec(e.globalPos())
 
 
 app = QApplication(sys.argv)
